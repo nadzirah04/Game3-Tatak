@@ -9,11 +9,10 @@
 <style>
 :root {
   --pink:#f54b9d;
-  --pink-dark:#bb2e78;
-  --pink-light:#ffe2f0;
+  --darkpink:#b82b77;
   --purple:#704367;
-  --cream:#fffdf7;
-  --green:#48bd7d;
+  --cream:#fffdf8;
+  --green:#43bd7d;
   --gold:#ffd45e;
 }
 
@@ -24,7 +23,7 @@
 body {
   margin:0;
   font-family:"Trebuchet MS",Arial,sans-serif;
-  background:#f8cfe5;
+  background:#f9d6e9;
   color:var(--purple);
   overflow-x:hidden;
 }
@@ -40,7 +39,7 @@ button {
 button:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline:4px solid #3787ff;
+  outline:4px solid #3187ff;
   outline-offset:3px;
 }
 
@@ -48,7 +47,7 @@ select:focus-visible {
   display:none!important;
 }
 
-/* ===== DUNIA TATAK ===== */
+/* ===== LATAR RUMAH TATAK ===== */
 
 .world {
   position:relative;
@@ -120,7 +119,9 @@ select:focus-visible {
 }
 
 @keyframes butterfly {
-  50% {transform:translate(45px,-45px) rotate(12deg)}
+  50% {
+    transform:translate(45px,-45px) rotate(12deg);
+  }
 }
 
 .container {
@@ -131,7 +132,7 @@ select:focus-visible {
   padding:18px;
 }
 
-/* ===== HUD ===== */
+/* ===== BAHAGIAN ATAS ===== */
 
 .hud {
   display:flex;
@@ -193,7 +194,7 @@ select:focus-visible {
   opacity:.45;
 }
 
-/* ===== TATAK ===== */
+/* ===== WATAK TATAK ===== */
 
 .character-zone {
   display:flex;
@@ -216,7 +217,9 @@ select:focus-visible {
 }
 
 @keyframes tatakMove {
-  50% {transform:translateY(-12px) rotate(2deg)}
+  50% {
+    transform:translateY(-12px) rotate(2deg);
+  }
 }
 
 .speech {
@@ -239,7 +242,7 @@ select:focus-visible {
   margin-bottom:5px;
 }
 
-/* ===== PANEL ===== */
+/* ===== PANEL GAME ===== */
 
 .panel {
   background:#fffdf8f2;
@@ -279,7 +282,7 @@ h1 {
   background:var(--pink);
   color:white;
   font-weight:900;
-  box-shadow:0 5px 0 var(--pink-dark);
+  box-shadow:0 5px 0 var(--darkpink);
   transition:.15s;
 }
 
@@ -317,7 +320,7 @@ select,input {
   max-width:100%;
 }
 
-/* ===== PINTU MASUK ===== */
+/* ===== HALAMAN MULA ===== */
 
 .portal {
   font-size:95px;
@@ -347,7 +350,7 @@ select,input {
   margin-top:12px;
 }
 
-/* ===== MISI ===== */
+/* ===== SOALAN ===== */
 
 .mission-title {
   text-align:center;
@@ -373,7 +376,9 @@ select,input {
 }
 
 @keyframes soundPulse {
-  50% {box-shadow:0 0 0 14px #ffabd177}
+  50% {
+    box-shadow:0 0 0 14px #ffabd177;
+  }
 }
 
 .cards {
@@ -523,8 +528,6 @@ select,input {
   }
 }
 
-/* ===== RESPONSIF ===== */
-
 @media(max-width:650px) {
   .container {padding:10px}
   .world {background-attachment:scroll}
@@ -573,7 +576,6 @@ select,input {
           id="musicButton"
           onclick="toggleMusic()"
           title="Muzik latar"
-          aria-label="Hidupkan atau matikan muzik"
         >🎵</button>
 
         <button
@@ -581,7 +583,6 @@ select,input {
           id="sfxButton"
           onclick="toggleSfx()"
           title="Kesan bunyi"
-          aria-label="Hidupkan atau matikan kesan bunyi"
         >🔔</button>
       </div>
 
@@ -639,11 +640,9 @@ select,input {
             <option value="lemah">
               Tahap 1 - Lengkapkan Ayat
             </option>
-
             <option value="sederhana">
               Tahap 2 - Susun Ayat
             </option>
-
             <option value="cemerlang">
               Tahap 3 - Bina Ayat Sendiri
             </option>
@@ -674,7 +673,6 @@ select,input {
         <button
           class="sound-button"
           onclick="playWord()"
-          aria-label="Dengar perkataan"
         >🔊</button>
 
         <div class="cards" id="cards"></div>
@@ -754,7 +752,6 @@ select,input {
       </section>
 
     </main>
-
   </div>
 </div>
 
@@ -812,32 +809,34 @@ const questions = [
   }
 ];
 
-/* ===== FAIL AUDIO ===== */
+/* ======================================
+   AUDIO GITHUB - SEMUA FAIL DI ROOT
+   ====================================== */
 
 const audioFiles = {
-  intro:"audio/intro.mp3",
-  arahan:"audio/arahan.mp3",
-  betul:"audio/betul.mp3",
-  salah:"audio/salah.mp3",
-  binaAyat:"audio/bina-ayat.mp3",
-  antara:"audio/antara.mp3",
-  tahniah:"audio/tahniah.mp3",
+  intro:"intro.mp3",
+  arahan:"arahan.mp3",
+  betul:"betul.mp3",
+  salah:"salah.mp3",
+  binaAyat:"bina-ayat.mp3",
+  antara:"antara.mp3",
+  tahniah:"tahniah.mp3",
 
-  kucing:"audio/kucing.mp3",
-  bola:"audio/bola.mp3",
-  bunga:"audio/bunga.mp3",
+  kucing:"kucing.mp3",
+  bola:"bola.mp3",
+  bunga:"bunga.mp3",
 
-  ayatKucing:"audio/ayat-kucing.mp3",
-  ayatBola:"audio/ayat-bola.mp3",
-  ayatBunga:"audio/ayat-bunga.mp3"
+  ayatKucing:"ayat-kucing.mp3",
+  ayatBola:"ayat-bola.mp3",
+  ayatBunga:"ayat-bunga.mp3"
 };
 
 const sfxFiles = {
-  click:"audio/sfx/click.mp3",
-  correct:"audio/sfx/correct.mp3",
-  wrong:"audio/sfx/wrong.mp3",
-  sparkle:"audio/sfx/sparkle.mp3",
-  win:"audio/sfx/win.mp3"
+  click:"click.mp3",
+  correct:"correct.mp3",
+  wrong:"wrong.mp3",
+  sparkle:"sparkle.mp3",
+  win:"win.mp3"
 };
 
 /* ===== SISTEM AUDIO ===== */
@@ -847,9 +846,7 @@ let sfxEnabled = true;
 let currentVoice = null;
 let activeSfx = [];
 
-const backgroundMusic = new Audio(
-  "audio/music/background.mp3"
-);
+const backgroundMusic = new Audio("background.mp3");
 
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.24;
@@ -858,7 +855,7 @@ function startMusic() {
   if (!musicEnabled) return;
 
   backgroundMusic.play().catch(error => {
-    console.warn("Muzik belum dapat dimainkan:", error);
+    console.warn("Muzik belum dapat dimainkan:",error);
   });
 }
 
@@ -872,9 +869,18 @@ function stopVoice() {
   backgroundMusic.volume = 0.24;
 }
 
+/*
+  Fungsi ini pulangkan Promise.
+  Game boleh tunggu rakaman selesai
+  sebelum bertukar aktiviti.
+*/
+
 function playVoice(name) {
   const path = audioFiles[name];
-  if (!path) return;
+
+  if (!path) {
+    return Promise.resolve();
+  }
 
   stopVoice();
 
@@ -883,17 +889,29 @@ function playVoice(name) {
   const audio = new Audio(path);
   currentVoice = audio;
 
-  audio.play().catch(error => {
-    console.warn("Rakaman belum tersedia:", path, error);
-    backgroundMusic.volume = 0.24;
-  });
+  return new Promise(resolve => {
+    let finished = false;
 
-  audio.onended = () => {
-    if (currentVoice === audio) {
-      currentVoice = null;
-      backgroundMusic.volume = 0.24;
+    function finish() {
+      if (finished) return;
+      finished = true;
+
+      if (currentVoice === audio) {
+        currentVoice = null;
+        backgroundMusic.volume = 0.24;
+      }
+
+      resolve();
     }
-  };
+
+    audio.onended = finish;
+    audio.onerror = finish;
+
+    audio.play().catch(error => {
+      console.warn("Audio tidak tersedia:",path,error);
+      finish();
+    });
+  });
 }
 
 function playSfx(name) {
@@ -918,7 +936,7 @@ function toggleMusic() {
   musicEnabled = !musicEnabled;
 
   $("musicButton").classList.toggle(
-    "off", !musicEnabled
+    "off",!musicEnabled
   );
 
   if (musicEnabled) {
@@ -932,7 +950,7 @@ function toggleSfx() {
   sfxEnabled = !sfxEnabled;
 
   $("sfxButton").classList.toggle(
-    "off", !sfxEnabled
+    "off",!sfxEnabled
   );
 
   if (!sfxEnabled) {
@@ -941,7 +959,7 @@ function toggleSfx() {
   }
 }
 
-document.addEventListener("click", event => {
+document.addEventListener("click",event => {
   if (event.target.closest("button")) {
     if (event.target.id !== "sfxButton") {
       playSfx("click");
@@ -957,12 +975,17 @@ let selectedWords = [];
 let chosenWord = "";
 let solved = false;
 let transitionTimer = null;
+let gameVersion = 0;
 
 function clearTransition() {
   if (transitionTimer !== null) {
     clearTimeout(transitionTimer);
     transitionTimer = null;
   }
+}
+
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve,ms));
 }
 
 /* ===== PAPARAN ===== */
@@ -988,10 +1011,10 @@ function setDialog(text) {
 
 function updateProgress() {
   $("round").textContent =
-    Math.min(current + 1, 3);
+    Math.min(current+1,3);
 
   $("progressFill").style.width =
-    (current / 3 * 100) + "%";
+    (current/3*100)+"%";
 }
 
 function speakDialog() {
@@ -1012,9 +1035,10 @@ function speakDialog() {
   }
 }
 
-/* ===== MULAKAN MISI ===== */
+/* ===== MULAKAN GAME ===== */
 
 function startGame() {
+  gameVersion++;
   clearTransition();
 
   level = $("level").value;
@@ -1026,9 +1050,10 @@ function startGame() {
   loadMatching();
 }
 
-/* ===== DENGAR DAN PILIH ===== */
+/* ===== PILIH GAMBAR ===== */
 
 function loadMatching() {
+  gameVersion++;
   clearTransition();
   stopVoice();
 
@@ -1062,7 +1087,7 @@ function loadMatching() {
     button.appendChild(word);
 
     button.onclick = () => {
-      chooseCard(option.word, button);
+      chooseCard(option.word,button);
     };
 
     cards.appendChild(button);
@@ -1075,13 +1100,14 @@ function playWord() {
   playVoice(questions[current].word);
 }
 
-function chooseCard(word, button) {
+async function chooseCard(word,button) {
   if (solved) return;
 
   const q = questions[current];
 
   if (word === q.word) {
     solved = true;
+    const version = gameVersion;
 
     button.classList.add("correct");
 
@@ -1089,15 +1115,14 @@ function chooseCard(word, button) {
       "🌟 Wah! Jawapan kamu betul!";
 
     playSfx("correct");
-    playVoice("betul");
     confetti(12);
 
-    clearTransition();
+    await playVoice("betul");
+    await wait(800);
 
-    transitionTimer = setTimeout(() => {
-      transitionTimer = null;
-      loadBuilding();
-    }, 5000);
+    if (version !== gameVersion) return;
+
+    loadBuilding();
   }
   else {
     button.classList.add("wrong");
@@ -1110,13 +1135,14 @@ function chooseCard(word, button) {
 
     setTimeout(() => {
       button.classList.remove("wrong");
-    }, 700);
+    },700);
   }
 }
 
 /* ===== BINA AYAT ===== */
 
 function loadBuilding() {
+  gameVersion++;
   clearTransition();
   stopVoice();
 
@@ -1132,7 +1158,7 @@ function loadBuilding() {
 
   setDialog(
     "Hebat! Sekarang, jom bina ayat " +
-    "menggunakan perkataan " + q.word + "!"
+    "menggunakan perkataan "+q.word+"!"
   );
 
   const task = $("sentenceTask");
@@ -1145,7 +1171,7 @@ function loadBuilding() {
     task.innerHTML =
       "<h3>🌸 Lengkapkan Ayat</h3>" +
       "<p style='font-size:26px'>" +
-      q.prefix + " ____ " + q.suffix +
+      q.prefix+" ____ "+q.suffix+
       "</p>";
 
     const bank = document.createElement("div");
@@ -1205,7 +1231,7 @@ function loadBuilding() {
     task.innerHTML =
       "<h3>✏️ Bina Ayat Sendiri</h3>" +
       "<p>Gunakan perkataan: <b>" +
-      q.word + "</b></p>";
+      q.word+"</b></p>";
 
     const picture = document.createElement("div");
     picture.style.fontSize = "65px";
@@ -1270,7 +1296,7 @@ function normalize(text) {
     .trim();
 }
 
-function checkSentence() {
+async function checkSentence() {
   if (solved) return;
 
   const q = questions[current];
@@ -1311,7 +1337,7 @@ function checkSentence() {
     ) {
       $("sentenceFeedback").textContent =
         "Bina ayat sekurang-kurangnya tiga perkataan " +
-        "menggunakan perkataan '" + q.word + "'.";
+        "menggunakan perkataan '"+q.word+"'.";
       return;
     }
 
@@ -1337,20 +1363,20 @@ function checkSentence() {
 
   if (correct) {
     solved = true;
+    const version = gameVersion;
 
     $("sentenceFeedback").textContent =
       "🌟 Tahniah! Ayat kamu betul!";
 
     playSfx("correct");
-    playVoice("betul");
     confetti(15);
 
-    clearTransition();
+    await playVoice("betul");
+    await wait(800);
 
-    transitionTimer = setTimeout(() => {
-      transitionTimer = null;
-      completeRound();
-    }, 5000);
+    if (version !== gameVersion) return;
+
+    completeRound();
   }
   else {
     $("sentenceFeedback").textContent =
@@ -1368,7 +1394,7 @@ function sentenceHint() {
     playVoice(q.word);
 
     $("sentenceFeedback").textContent =
-      "💡 Cari perkataan: " + q.word;
+      "💡 Cari perkataan: "+q.word;
   }
   else {
     playVoice(q.sentenceAudio);
@@ -1381,13 +1407,14 @@ function sentenceHint() {
 /* ===== GANJARAN ===== */
 
 function completeRound() {
+  gameVersion++;
   clearTransition();
   stopVoice();
 
   current++;
 
   $("progressFill").style.width =
-    (current / 3 * 100) + "%";
+    (current/3*100)+"%";
 
   playSfx("sparkle");
 
@@ -1414,7 +1441,7 @@ function completeRound() {
     );
 
     $("betweenStars").textContent =
-      "⭐".repeat(current) +
+      "⭐".repeat(current)+
       "☆".repeat(3-current);
 
     playVoice("antara");
@@ -1428,6 +1455,7 @@ function nextRound() {
 }
 
 function restart() {
+  gameVersion++;
   clearTransition();
   stopVoice();
 
@@ -1443,7 +1471,7 @@ function restart() {
   );
 }
 
-/* ===== ANIMASI CONFETTI ===== */
+/* ===== ANIMASI BINTANG ===== */
 
 function confetti(amount) {
   const symbols = ["💗","⭐","🌸","✨","💎"];
